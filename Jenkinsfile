@@ -107,8 +107,6 @@ pipeline {
                     }
                     steps {
                         withCredentials([string(credentialsId: 'codecov_token', variable: 'CODECOV_TOKEN')]) {
-                            echo 'Building to calculate coverage'
-                            sh 'cargo test --all --features "empty"'
                             echo 'Calculating code coverage...'
                             sh './scripts/coverage.sh'
                             echo "Uploading coverage..."
