@@ -99,11 +99,11 @@ pipeline {
                 }
                 stage('Coverage') {
                     agent {
-			            docker {
-			                image 'amethystrs/builder-linux:stable'
+                        docker {
+                            image 'amethystrs/builder-linux:stable'
                             args '--privileged'
-			                label 'docker'
-			            }
+                            label 'docker'
+                        }
                     }
                     steps {
                         withCredentials([string(credentialsId: 'codecov_token', variable: 'CODECOV_TOKEN')]) {
